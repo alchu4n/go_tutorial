@@ -6,28 +6,29 @@ import (
 )
 
 type student struct {
-	ID     int
+	Id     int
 	Gender string
 	Name   string
 }
 
 type class struct {
 	Title    string
-	students []*student
+	Students []*student
 }
 
 func main() {
 	c := &class{
-		Title:    "101",
-		students: make([]*student, 0, 200),
+		Title:    "火箭100",
+		Students: make([]*student, 0, 200),
 	}
+	fmt.Println(c)
 	for i := 0; i < 10; i++ {
 		stu := &student{
 			Name:   fmt.Sprintf("stu%02d", i),
 			Gender: "男",
-			ID:     i,
+			Id:     i,
 		}
-		c.students = append(c.students, stu)
+		c.Students = append(c.Students, stu)
 	}
 	//JSON序列化：结构体-->JSON格式的字符串
 	data, err := json.Marshal(c)
