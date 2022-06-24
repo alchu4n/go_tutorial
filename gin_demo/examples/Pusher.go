@@ -1,8 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"html/template"
 	"log"
+
+	"github.com/gin-gonic/gin"
 )
 
 var html = template.Must(template.New("https").Parse(`
@@ -17,12 +19,12 @@ var html = template.Must(template.New("https").Parse(`
 </html>
 `))
 
-func main() {
+func Pusher() {
 	r := gin.Default()
 	r.Static("/assets", "./assets")
 	r.SetHTMLTemplate(html)
 
-	r.GET("/index", func(c *gin.Context) {
+	r.GET("/", func(c *gin.Context) {
 		if pusher := c.Writer.Pusher(); pusher != nil {
 			// 使用 pusher.Push() 做服务器推送
 			if err := pusher.Push("/assets/app.js", nil); err != nil {
@@ -33,6 +35,7 @@ func main() {
 			"status": "success",
 		})
 	})
+
 	// 监听并在 https://127.0.0.1:8080 上启动服务
 	r.RunTLS(":8080", "./testdata/server.pem", "./testdata/server.key")
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,7 +12,7 @@ Content-Type: application/x-www-form-urlencoded
 
 name=manu&message=this_is_great
 */
-func main() {
+func Query() {
 	r := gin.Default()
 	r.POST("/post", func(c *gin.Context) {
 		id := c.Query("id")

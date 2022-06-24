@@ -7,7 +7,7 @@ type LoginForm struct {
 	Password string `form:"password" binding:"required"`
 }
 
-func main() {
+func ShouldBind() {
 	r := gin.Default()
 	r.POST("/login", func(c *gin.Context) {
 		var form LoginForm

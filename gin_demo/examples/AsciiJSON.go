@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func AsciiJSON() {
 	r := gin.Default()
 	r.GET("/someJson", func(c *gin.Context) {
 		data := map[string]interface{}{

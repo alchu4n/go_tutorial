@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func LoadHTMLGlob() {
 	r := gin.Default()
 	//使用 LoadHTMLGlob() 或者 LoadHTMLFiles()
 	r.LoadHTMLGlob("templates/*")

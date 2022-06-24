@@ -2,7 +2,7 @@ package main
 
 import "github.com/gin-gonic/gin"
 
-func main() {
+func PureJSON() {
 	r := gin.Default()
 
 	// 提供unicode实体

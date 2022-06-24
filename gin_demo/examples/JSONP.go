@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func JSONP() {
 	r := gin.Default()
 	r.GET("/JSONP", func(c *gin.Context) {
 		data := map[string]interface{}{"foo": "bar"}
