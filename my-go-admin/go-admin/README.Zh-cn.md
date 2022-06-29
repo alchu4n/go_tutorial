@@ -1,14 +1,5 @@
 # go-admin
 
-  <img align="right" width="320" src="https://raw.githubusercontent.com/wenjianzhang/image/a44d60756c9fdedbd70f6bff076a31cbf314936a/img/go-admin.svg">
-
-
-[![Build Status](https://github.com/wenjianzhang/go-admin/workflows/build/badge.svg)](https://github.com/go-admin-team/go-admin)
-[![Release](https://img.shields.io/github/release/go-admin-team/go-admin.svg?style=flat-square)](https://github.com/go-admin-team/go-admin/releases)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/go-admin-team/go-admin)
-
-[English](https://github.com/go-admin-team/go-admin/blob/master/README.md) | 简体中文
-
 基于Gin + Vue + Element UI的前后端分离权限管理系统,系统初始化极度简单，只需要配置文件中，修改数据库连接，系统支持多指令操作，迁移指令可以让初始化数据库信息变得更简单，服务指令可以很简单的启动api服务
 
 [在线文档](https://doc.go-admin.dev)
@@ -21,50 +12,6 @@
 
 [视频教程](https://space.bilibili.com/565616721/channel/detail?cid=125737)
 
-## ✨ 特性
-
-- 遵循 RESTful API 设计规范
-
-- 基于 GIN WEB API 框架，提供了丰富的中间件支持（用户认证、跨域、访问日志、追踪ID等）
-
-- 基于Casbin的 RBAC 访问控制模型
-
-- JWT 认证
-
-- 支持 Swagger 文档(基于swaggo)
-
-- 基于 GORM 的数据库存储，可扩展多种类型数据库
-
-- 配置文件简单的模型映射，快速能够得到想要的配置
-
-- 代码生成工具
-
-- 表单构建工具
-
-- 多指令模式
-
-- 多租户的支持
-
-- TODO: 单元测试
-
-## 🎁 内置
-
-1. 多租户：系统默认支持多租户，按库分离，一个库一个租户。
-1. 用户管理：用户是系统操作者，该功能主要完成系统用户配置。
-2. 部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
-3. 岗位管理：配置系统用户所属担任职务。
-4. 菜单管理：配置系统菜单，操作权限，按钮权限标识，接口权限等。
-5. 角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。
-6. 字典管理：对系统中经常使用的一些较为固定的数据进行维护。
-7. 参数管理：对系统动态配置常用参数。
-8. 操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
-9. 登录日志：系统登录日志记录查询包含登录异常。
-1. 接口文档：根据业务代码自动生成相关的api接口文档。
-1. 代码生成：根据数据表结构生成对应的增删改查相对应业务，全程可视化操作，让基本业务可以零代码实现。
-1. 表单构建：自定义页面样式，拖拉拽实现页面布局。
-1. 服务监控：查看一些服务器的基本信息。
-1. 内容管理：demo功能，下设分类管理、内容管理。可以参考使用方便快速入门。
-1. 定时任务：自动化任务，目前支持接口调用和函数调用。
 
 ## 准备工作
 
@@ -230,58 +177,134 @@ npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
 
-## 🎬 在线体验
+## 目录及文件名
 
-> admin / 123456
+### app
+app 此目录是存放不同的应用或者较大的应用模块；例如：go-admin内置了用户权限管理模块，因此，在 app 下有一个 admin 的文件夹；
 
-演示地址：[http://www.go-admin.dev](http://www.go-admin.dev/#/login)
+### admin
+admin是指go-admin内置的用户权限管理模块；
 
-## 📨 互动
+### apis
+apis 目录下直接存放 api 文件，命名格式如下：
+格式：apis/{name}.go
 
-<table>
-   <tr>
-    <td><img src="https://raw.githubusercontent.com/wenjianzhang/image/master/img/wx.png" width="180px"></td>
-    <td><img src="https://raw.githubusercontent.com/wenjianzhang/image/master/img/qq.png" width="200px"></td>
-    <td><img src="https://raw.githubusercontent.com/wenjianzhang/image/master/img/qq2.png" width="200px"></td>
-  </tr>
-  <tr>
-    <td>微信</td>
-    <td><a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=I8ZMqsExqCHpyu8SL4rbya700rBBXYLO&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="go-admin技术交流甲号" title="go-admin技术交流甲号"></a></td>
-    <td><a target="_blank" href="https://shang.qq.com/wpa/qunwpa?idkey=0f2bf59f5f2edec6a4550c364242c0641f870aa328e468c4ee4b7dbfb392627b"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="go-admin技术交流乙号" title="go-admin技术交流乙号"></a></td>
-  </tr>
-</table>
+### models
+models 目录下直接存放数据库 orm 模型文件，命名格式如下：
+格式：models/{name}.go
 
-## 💎 主要成员
+### router
+router 目录下直接存放路由文件，命名格式如下：
+格式：router/{name}.go
 
-<a href="https://github.com/wenjianzhang"> <img src="https://avatars.githubusercontent.com/u/3890175?s=460&u=20eac63daef81588fbac611da676b99859319251&v=4" width="80px"></a>
-<a href="https://github.com/lwnmengjing"> <img src="https://avatars.githubusercontent.com/u/12806223?s=400&u=a89272dce50100b77b4c0d5c81c718bf78ebb580&v=4" width="80px"></a>
-<a href="https://github.com/chengxiao"> <img src="https://avatars.githubusercontent.com/u/1379545?s=460&u=557da5503d0ac4a8628df6b4075b17853d5edcd9&v=4" width="80px"></a>
-<a href="https://github.com/bing127"> <img src="https://avatars.githubusercontent.com/u/31166183?s=460&u=c085bff88df10bb7676c8c0351ba9dcd031d1fb3&v=4" width="80px"></a>
+### service
+service 目录下直接存放业务处理文件，命名格式如下：
+格式：service/{name}.go
 
-## JetBrains 开源证书支持
+### service/dto
+service/dto 目录下存放 api 请求接收或者输出的模型文件，命名格式如下：
+格式：service/dto/{name}.go
 
-`go-admin` 项目一直以来都是在 JetBrains 公司旗下的 GoLand 集成开发环境中进行开发，基于 **free JetBrains Open Source license(s)** 正版免费授权，在此表达我的谢意。
+## Code 规范
 
-<a href="https://www.jetbrains.com/?from=kubeadm-ha" target="_blank"><img src="https://raw.githubusercontent.com/panjf2000/illustrations/master/jetbrains/jetbrains-variant-4.png" width="250" align="middle"/></a>
+### 引用部分分类
+分类列表
+* 内置函数；
+* 外部函数；
+* 项目引用；
 
-## 🤝 特别感谢
+格式：每块内容需有明显的分割，这里我们使用空行进行分割；
+示例：
 
-1. [chengxiao](https://github.com/chengxiao)
-2. [gin](https://github.com/gin-gonic/gin)
-2. [casbin](https://github.com/casbin/casbin)
-2. [spf13/viper](https://github.com/spf13/viper)
-2. [gorm](https://github.com/jinzhu/gorm)
-2. [gin-swagger](https://github.com/swaggo/gin-swagger)
-2. [jwt-go](https://github.com/dgrijalva/jwt-go)
-2. [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
-2. [ruoyi-vue](https://gitee.com/y_project/RuoYi-Vue)
-2. [form-generator](https://github.com/JakHuang/form-generator)
+```go
+import (
+  "net/http"
 
-## 🤟 打赏
+  "github.com/gin-gonic/gin"
 
-> 如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 :tropical_drink:
+  "go-admin/tools/app"
+  "go-admin/app/admin/models"
+)
+```
 
-<img class="no-margin" src="https://raw.githubusercontent.com/wenjianzhang/image/master/img/pay.png"  height="200px" >
+### 函数名
+格式：{操作类型}{函数名备注}：
+
+* 分为前后两段：
+  * 第一段方法名称；Get
+  * 第二段备注说明；ArticleList
+示例：
+```go
+// GetArticleList 获取文章列表
+func GetArticleList(c *gin.Context) {
+    ...
+}
+```
+
+### go 内置函数
+请勿自行使用系统内置init函数，如果执行顺序控制不当，可能会出现问题
+
+业务名称：list 、 add 、 remove 、 edit 、 query 、
+格式：{module}/{name}/业务名称
+示例：admin/sysUser/list
+
+
+
+### Router
+#### api [v1.4.0+]
+格式：api/{version}/{module}/{name}
+示例：api/v1/system/sys-user
+
+#### view [v1.4.0+]
+格式：{module}/{name}
+示例：system/sys-user
+
+
+
+## ✨ 特性
+
+- 遵循 RESTful API 设计规范
+
+- 基于 GIN WEB API 框架，提供了丰富的中间件支持（用户认证、跨域、访问日志、追踪ID等）
+
+- 基于Casbin的 RBAC 访问控制模型
+
+- JWT 认证
+
+- 支持 Swagger 文档(基于swaggo)
+
+- 基于 GORM 的数据库存储，可扩展多种类型数据库
+
+- 配置文件简单的模型映射，快速能够得到想要的配置
+
+- 代码生成工具
+
+- 表单构建工具
+
+- 多指令模式
+
+- 多租户的支持
+
+- TODO: 单元测试
+
+## 🎁 内置
+
+1. 多租户：系统默认支持多租户，按库分离，一个库一个租户。
+1. 用户管理：用户是系统操作者，该功能主要完成系统用户配置。
+2. 部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
+3. 岗位管理：配置系统用户所属担任职务。
+4. 菜单管理：配置系统菜单，操作权限，按钮权限标识，接口权限等。
+5. 角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。
+6. 字典管理：对系统中经常使用的一些较为固定的数据进行维护。
+7. 参数管理：对系统动态配置常用参数。
+8. 操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
+9. 登录日志：系统登录日志记录查询包含登录异常。
+1. 接口文档：根据业务代码自动生成相关的api接口文档。
+1. 代码生成：根据数据表结构生成对应的增删改查相对应业务，全程可视化操作，让基本业务可以零代码实现。
+1. 表单构建：自定义页面样式，拖拉拽实现页面布局。
+1. 服务监控：查看一些服务器的基本信息。
+1. 内容管理：demo功能，下设分类管理、内容管理。可以参考使用方便快速入门。
+1. 定时任务：自动化任务，目前支持接口调用和函数调用。
 
 ## 🤝 链接
 

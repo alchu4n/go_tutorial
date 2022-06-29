@@ -2,7 +2,7 @@ package main
 
 import "github.com/gin-gonic/gin"
 
-func ShouldBind() {
+func shouldBind() {
 	r := gin.Default()
 	r.POST("/form_post", func(c *gin.Context) {
 		message := c.PostForm("message")
