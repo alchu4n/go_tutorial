@@ -1,0 +1,28 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+      - link:     "mysql:root:Wz2601sh@tcp(127.0.0.1:3306)/goframe_demo"
+        tables:   "order,products"
+        jsonCase: "CamelLower"
+
+      # - link:   "mysql:root:Wz2601sh@tcp(127.0.0.1:3306)/primary"
+      #   path:   "./my-app"
+      #   prefix: "primary_"
+      #   tables: "user, userDetail"
+      
+      # sqlite需要自行编译带sqlite驱动的gf，下载库代码后修改路径文件（gf\cmd\gf\internal\cmd\cmd_gen_dao.go）的import包，取消注释即可。sqlite驱动依赖了gcc
+	    # - link: "sqlite:./file.db"
+  build:
+    name:     "gf"      # 默认与程序入口go文件同名
+    arch:     "amd64"   # all 当前系统架构 386,amd64,arm
+    system:   "darwin"  # all 当前系统平台  linux,darwin,windows
+    mod:      "none"    # 同go build -mod编译选项，不常用
+    cgo:      "0"       # 是否开启CGO，默认是关闭的。如果开启，那么交叉编译可能会有问题。
+    pack:     ""        # 需要打包的目录，多个以,号分隔，生成到internal/packed/data.go  示例 public,template
+    version:  "v1.0.0"  # 程序版本，如果指定版本信息，那么程序生成的路径中会多一层以版本名称的目录
+    output:   "./temp"   # 输出的可执行文件路径，当该参数指定时，name和path参数失效，常用于编译单个可执行文件
+    extra:    ""        # 额外自定义的编译参数，会直接传递给go build命令
+    varMap:   ""        # 自定义的内置变量键值对
